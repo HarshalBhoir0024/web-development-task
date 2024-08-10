@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            text-align: center;
+        }
+
+        header {
+            background-color: #007bff;
+            color: #ffffff;
+            padding: 20px;
+        }
+
+        main {
+            padding: 50px;
+        }
+
+        input {
+            padding: 10px;
+            font-size: 1.2em;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1.2em;
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            cursor: pointer;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Header Section -->
+<header>
+    <h1>Temperature Converter</h1>
+</header>
+
+<!-- Main Content Section -->
+<main>
+    <label for="celsius">Enter Temperature in Celsius:</label>
+    <input type="number" id="celsius" placeholder="Enter temperature" required>
+
+    <button onclick="convertTemperature()">Convert</button>
+
+    <div id="result"></div>
+</main>
+
+<script>
+    function convertTemperature() {
+        // Get the temperature in Celsius from the input field
+        var celsiusInput = document.getElementById('celsius');
+        var celsius = parseFloat(celsiusInput.value);
+
+        // Check if the input is a valid number
+        if (!isNaN(celsius)) {
+            // Convert Celsius to Fahrenheit
+            var fahrenheit = (celsius * 9/5) + 32;
+
+            // Display the result
+            var resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = celsius + " Celsius is " + fahrenheit.toFixed(2) + " Fahrenheit.";
+        } else {
+            // Display an error message for invalid input
+            alert("Please enter a valid number for Celsius temperature.");
+        }
+    }
+</script>
+
+</body>
+</html>
